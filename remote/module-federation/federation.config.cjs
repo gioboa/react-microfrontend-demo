@@ -1,6 +1,5 @@
 const {
   withNativeFederation,
-  shareAll,
 } = require("@softarc/native-federation/build");
 
 module.exports = withNativeFederation({
@@ -8,8 +7,6 @@ module.exports = withNativeFederation({
   exposes: {
     "./remote-app": "./src/App.tsx"
   },
-  shared: {
-  },
-
+  shared: {},
 });
 
