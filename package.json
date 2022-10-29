@@ -5,6 +5,7 @@
 	"main": "index.js",
 	"scripts": {
 		"install:deps": "npm --prefix ./host install && npm --prefix ./remote install",
+		"postinstall:deps": "npm --prefix ./host run build && npm --prefix ./remote run build",
 		"host:dev": "npm --prefix ./host run dev",
 		"remote:dev": "npm --prefix ./remote run dev",
 		"host:preview": "npm --prefix ./host run preview",
