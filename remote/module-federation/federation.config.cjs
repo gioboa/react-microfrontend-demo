@@ -4,7 +4,12 @@ const {
 } = require("@softarc/native-federation/build");
 
 module.exports = withNativeFederation({
-  name: "host",
+  name: "remote",
+  exposes: {
+    "./remote-app": "./src/App.tsx"
+  },
   shared: {
   },
+
 });
+
