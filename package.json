@@ -5,8 +5,10 @@
 	"main": "index.js",
 	"scripts": {
 		"install:deps": "npm --prefix ./host install && npm --prefix ./remote install",
-		"serve:host:preview": "npm --prefix ./host run preview",
-		"serve:remote:preview": "npm --prefix ./remote run preview"
+		"host:dev": "npm --prefix ./host run dev",
+		"remote:dev": "npm --prefix ./remote run dev",
+		"host:preview": "npm --prefix ./host run preview",
+		"remote:preview": "npm --prefix ./remote run preview"
 	},
 	"author": {
 		"name": "Giorgio Boa",
