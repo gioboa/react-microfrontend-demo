@@ -15,7 +15,7 @@ export default () => {
 		>
 			<div className='icon'>
 				<svg
-					enable-background='new 0 0 512 512'
+					enableBackground='new 0 0 512 512'
 					height='100px'
 					width='100px'
 					id='Layer_1'

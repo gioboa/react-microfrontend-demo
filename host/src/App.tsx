@@ -20,7 +20,7 @@ export default () => {
 				<div className='card'>
 					<div className='icon'>
 						<svg
-							enable-background='new 0 0 512 512'
+							enableBackground='new 0 0 512 512'
 							height='512px'
 							id='Layer_1'
 							version='1.1'
