@@ -10,8 +10,7 @@
 	},
 	"dependencies": {
 		"react": "^18.2.0",
-		"react-dom": "^18.2.0",
-		"react-jss": "^10.9.2"
+		"react-dom": "^18.2.0"
 	},
 	"devDependencies": {
 		"@gioboa/vite-module-federation": "^0.2.0",
