@@ -11,11 +11,17 @@ export default defineConfig(async ({ command }) => ({
 		},
 	},
 	plugins: [
-		command === 'serve' &&
-			importMaps({
-				'__x00__react/jsx-dev-runtime':
-					'https://esm.sh/react@18.0.0?pin=v74&path=/jsx-dev-runtime',
-			}),
+		importMaps(
+			command === 'serve'
+				? {
+						'__x00__react/jsx-dev-runtime':
+							'https://esm.sh/react@18.2.0?pin=v74&path=/jsx-dev-runtime',
+				  }
+				: {
+						'react/jsx-runtime':
+							'https://esm.sh/react@18.2.0?pin=v74&path=/jsx-runtime',
+				  }
+		),
 		await federation({
 			options: {
 				workspaceRoot: __dirname,

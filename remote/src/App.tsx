@@ -1,4 +1,11 @@
+import React from 'react';
+import Counter from './components/Counter';
+
 export default () => {
+	React.useEffect(() => {
+		console.log('Remote useEffect');
+	}, []);
+
 	return (
 		<div
 			style={{
@@ -32,6 +39,7 @@ export default () => {
 			<div style={{ marginTop: '10px', fontSize: '25px' }}>
 				I'm the remote app
 			</div>
+			<Counter />
 		</div>
 	);
 };

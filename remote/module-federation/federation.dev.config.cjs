@@ -7,13 +7,6 @@ module.exports = withNativeFederation({
   exposes: {
     "./remote-app": "./src/App.tsx"
   },
-  shared: {
-    ...shareAll({
-      singleton: true,
-      strictVersion: true,
-      requiredVersion: "auto",
-      includeSecondaries: false,
-    }),
-  },
+  shared: {},
 });
 
