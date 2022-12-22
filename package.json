@@ -1,5 +1,5 @@
 {
-	"name": "react-host-remote",
+	"name": "react-microfrontend-demo",
 	"version": "1.0.0",
 	"description": "Vite + Module Federation is now possible",
 	"main": "index.js",
