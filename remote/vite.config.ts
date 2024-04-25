@@ -15,10 +15,10 @@ export default defineConfig(async ({ command, mode }) => {
 		},
 		plugins: [
 			{
-				name: 'generate-enviroment',
+				name: 'generate-environment',
 				options: function () {
 					console.info('selfEnv', selfEnv);
-					writeFileSync('./src/enviroment.ts', `export default ${JSON.stringify(selfEnv, null, 2)};`);
+					writeFileSync('./src/environment.ts', `export default ${JSON.stringify(selfEnv, null, 2)};`);
 				},
 			},
 			await federation({
