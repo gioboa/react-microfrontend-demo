@@ -1,4 +1,6 @@
-import React from 'react';
+import _React from 'react';
+
+export let React = window.React || _React;
 
 export default () => {
 	const [count, setCount] = React.useState<number>(0);
