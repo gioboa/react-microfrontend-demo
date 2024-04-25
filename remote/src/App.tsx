@@ -5,7 +5,7 @@ interface Window {
 	React: typeof _React;
 }
 
-export let React = window.React || _React;
+export const React = window.React || _React;
 
 export default () => {
 	React.useEffect(() => {
