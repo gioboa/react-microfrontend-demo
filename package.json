@@ -4,19 +4,28 @@
 	"description": "Vite + Module Federation is now possible",
 	"main": "index.js",
 	"scripts": {
-		"install:deps": "npm --prefix ./host install && npm --prefix ./remote install",
-		"postinstall:deps": "npm --prefix ./host run build && npm --prefix ./remote run build",
-		"serve:host": "npm --prefix ./host run dev",
-		"serve:remote": "npm --prefix ./remote run dev",
-		"build:host": "npm --prefix ./host run build",
-		"build:remote": "npm --prefix ./remote run build",
-		"preview:host": "npm --prefix ./host run preview",
-		"preview:remote": "npm --prefix ./remote run preview"
+		"install:deps": "pnpm install && pnpm --prefix ./host install --force && pnpm --prefix ./remote install --force",
+		"postinstall:deps": "pnpm --prefix ./host run build && pnpm --prefix ./remote run build",
+		"serve": "run-p serve:*",
+		"serve:host": "pnpm --prefix ./host run dev",
+		"serve:remote": "pnpm --prefix ./remote run dev",
+		"build": "run-p build:*",
+		"build:host": "pnpm --prefix ./host run build",
+		"build:remote": "pnpm --prefix ./remote run build",
+		"preview": "run-p preview:*",
+		"preview:host": "pnpm build:host && pnpm --prefix ./host run preview",
+		"preview:remote": "pnpm build:remote && pnpm --prefix ./remote run preview",
+		"prepare": "husky install"
 	},
 	"author": {
 		"name": "Giorgio Boa",
 		"email": "giorgiob.boa@gmail.com",
 		"url": "https://github.com/gioboa"
 	},
-	"license": "ISC"
+	"license": "ISC",
+	"devDependencies": {
+		"husky": "^8.0.0",
+		"npm-run-all": "^4.1.5",
+		"prettier": "^2.8.2"
+	}
 }

@@ -1,17 +1,19 @@
 import { federation } from '@module-federation/vite';
-import { createEsBuildAdapter } from '@softarc/native-federation-esbuild';
-import { reactReplacements } from '@softarc/native-federation-esbuild/src/lib/react-replacements';
 import react from '@vitejs/plugin-react';
 import { writeFileSync } from 'fs';
 import { defineConfig, loadEnv } from 'vite';
+import { dependencies } from './package.json';
 
-export default defineConfig(async ({ command, mode }) => {
+export default defineConfig(({ mode }) => {
 	const selfEnv = loadEnv(mode, process.cwd());
 	return {
 		server: {
 			fs: {
 				allow: ['.', '../shared'],
 			},
+		},
+		build: {
+			target: 'chrome89',
 		},
 		plugins: [
 			{
@@ -21,19 +23,19 @@ export default defineConfig(async ({ command, mode }) => {
 					writeFileSync('./src/environment.ts', `export default ${JSON.stringify(selfEnv, null, 2)};`);
 				},
 			},
-			await federation({
-				options: {
-					workspaceRoot: __dirname,
-					outputPath: 'dist',
-					tsConfig: 'tsconfig.json',
-					federationConfig: `module-federation/federation.config.cjs`,
-					verbose: false,
-					dev: command === 'serve',
+			federation({
+				filename: 'remoteEntry.js',
+				name: 'remote',
+				exposes: {
+					'./remote-app': './src/App.tsx',
 				},
-				adapter: createEsBuildAdapter({
-					plugins: [],
-					fileReplacements: reactReplacements.dev,
-				}),
+				remotes: {},
+				shared: {
+					react: {
+						requiredVersion: dependencies.react,
+						singleton: true,
+					},
+				},
 			}),
 			react(),
 		],

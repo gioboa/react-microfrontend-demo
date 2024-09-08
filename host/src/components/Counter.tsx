@@ -1,7 +1,7 @@
-import React from 'react';
+import { useState } from 'react';
 
 export default () => {
-	const [count, setCount] = React.useState<number>(0);
+	const [count, setCount] = useState<number>(0);
 
 	return (
 		<button

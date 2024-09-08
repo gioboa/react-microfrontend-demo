@@ -1,9 +1,9 @@
-import { initFederation } from '@softarc/native-federation';
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import App from './App';
 
-(async () => {
-	await initFederation({
-		remote: 'http://localhost:4174/remoteEntry.json',
-	});
-
-	await import('./bootstrap');
-})();
+ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
+	<React.StrictMode>
+		<App />
+	</React.StrictMode>,
+);

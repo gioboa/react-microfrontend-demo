@@ -5,8 +5,7 @@
 From this directory execute:
 
 - npm run install:deps
-- npm run remote:preview
-- npm run host:preview (in a different terminal)
+- npm run preview
 
 Open your browser at http://localhost:4173/ to see the amazing result
 

@@ -1,14 +1,8 @@
-import _React from 'react';
+import { useEffect } from 'react';
 import Counter from './components/Counter';
 
-interface Window {
-	React: typeof _React;
-}
-
-export const React = window.React || _React;
-
 export default () => {
-	React.useEffect(() => {
+	useEffect(() => {
 		console.log('Remote useEffect');
 	}, []);
 

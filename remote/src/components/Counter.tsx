@@ -1,9 +1,7 @@
-import _React from 'react';
-
-export const React = window.React || _React;
+import { useState } from 'react';
 
 export default () => {
-	const [count, setCount] = React.useState<number>(0);
+	const [count, setCount] = useState<number>(0);
 
 	return (
 		<button
