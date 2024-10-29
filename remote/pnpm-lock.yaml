@@ -15,8 +15,8 @@ importers:
         version: 18.3.1(react@18.3.1)
     devDependencies:
       '@module-federation/vite':
-        specifier: 1.1.3
-        version: 1.1.3(@types/node@18.19.42)(rollup@4.19.1)
+        specifier: 1.1.4
+        version: 1.1.4(@types/node@18.19.42)(rollup@4.19.1)
       '@types/react':
         specifier: 18.2.79
         version: 18.2.79
@@ -287,8 +287,8 @@ packages:
   '@module-federation/sdk@0.6.11':
     resolution: { integrity: sha512-Fj2ws9yL6mGAki9GdurcrIhdSg0L2Kfw7L6Dej/DidzAU4bwa3MT0s+87BPuOYFgm2UTMN3g+UrElC2NhsuulQ== }
 
-  '@module-federation/vite@1.1.3':
-    resolution: { integrity: sha512-ZY1iRcFosJfI5XRPaKoLk/rdg0HC3wVNXq1QHpT2eSiccn+GIYp43bCRZhRJ4sE/FCdGfh+ARxSAok/bEuwMZA== }
+  '@module-federation/vite@1.1.4':
+    resolution: { integrity: sha512-eGeCGUuDUFRRwwbplZSHEhU5CVHOtYpkltLgNUuwC1hftQ0X1j8sGkovQwH6tJfQoHyXkOtjmuHPlLlfdKDPWA== }
 
   '@rollup/pluginutils@5.1.0':
     resolution: { integrity: sha512-XTIWOPPcpvyKI6L1NHo0lFlCyznUEyPmPY1mc3KpPVDYulHSTvyeLNVW00QTLIAFNhR3kYnJTQHeGqU4M3n09g== }
@@ -962,7 +962,7 @@ snapshots:
 
   '@module-federation/sdk@0.6.11': {}
 
-  '@module-federation/vite@1.1.3(@types/node@18.19.42)(rollup@4.19.1)':
+  '@module-federation/vite@1.1.4(@types/node@18.19.42)(rollup@4.19.1)':
     dependencies:
       '@module-federation/runtime': 0.6.11
       '@rollup/pluginutils': 5.1.0(rollup@4.19.1)
