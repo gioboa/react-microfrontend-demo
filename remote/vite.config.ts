@@ -24,6 +24,7 @@ export default defineConfig(({ mode }) => {
 				},
 			},
 			federation({
+				dts: false,
 				filename: 'remoteEntry.js',
 				name: 'remote',
 				exposes: {

@@ -10,6 +10,7 @@ export default defineConfig(() => ({
 	},
 	plugins: [
 		federation({
+			dts: false,
 			name: 'host',
 			remotes: {
 				remote: {
