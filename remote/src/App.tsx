@@ -1,7 +1,23 @@
 import { useEffect } from 'react';
 import Counter from './components/Counter';
 
-export default () => {
+type RemoteAppProps = {
+	message: string;
+	hostVersion: string;
+	remoteVersion: string;
+};
+
+const defaultProps: RemoteAppProps = {
+	message: 'running standalone',
+	hostVersion: 'n/a',
+	remoteVersion: '18',
+};
+
+export default ({
+	message = defaultProps.message,
+	hostVersion = defaultProps.hostVersion,
+	remoteVersion = defaultProps.remoteVersion,
+}: Partial<RemoteAppProps>) => {
 	useEffect(() => {
 		console.log('Remote useEffect');
 	}, []);
@@ -36,7 +52,10 @@ export default () => {
 					/>
 				</svg>
 			</div>
-			<div style={{ marginTop: '10px', fontSize: '25px' }}>I'm the remote app</div>
+			<div style={{ marginTop: '10px', fontSize: '25px' }}>Remote app</div>
+			<div style={{ marginTop: '6px', opacity: 0.8 }}>React {remoteVersion}</div>
+			<div style={{ marginTop: '12px', fontSize: '14px' }}>Host React {hostVersion}</div>
+			<div style={{ marginTop: '8px', minHeight: '21px' }}>Message: {message}</div>
 			<Counter />
 		</div>
 	);

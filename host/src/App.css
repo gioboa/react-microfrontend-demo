@@ -1,25 +1,40 @@
 .host .card {
-  background: #3178c6;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
-  border-radius: 5px;
-  margin: 20px 20px 20px 20px;
-  width: 250px;
-  padding: 20px;
-  text-align: center;
-  color: white;
-  float: left;
+	background: #3178c6;
+	box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+	border-radius: 5px;
+	margin: 20px 20px 20px 20px;
+	width: 250px;
+	padding: 20px;
+	text-align: center;
+	color: white;
+	float: left;
 }
 
 .host .title {
-  margin-top: 10px;
-  font-size: 25px;
+	margin-top: 10px;
+	font-size: 25px;
+}
+
+.host .meta {
+	margin-top: 6px;
+	font-size: 14px;
+	opacity: 0.8;
+}
+
+.host .message-input {
+	width: 100%;
+	margin-top: 14px;
+	padding: 10px 12px;
+	border: 0;
+	border-radius: 6px;
+	box-sizing: border-box;
 }
 
 .host svg {
-  width: 100px;
-  height: 100px;
+	width: 100px;
+	height: 100px;
 }
 
 .host path {
-  fill: #f6b352;
+	fill: #f6b352;
 }

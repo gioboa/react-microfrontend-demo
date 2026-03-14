@@ -1,19 +1,56 @@
-import { lazy, Suspense, useEffect } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { of, tap } from 'rxjs';
 import './App.css';
 import Counter from './components/Counter';
 
-const Remote = lazy(
-	// @ts-ignore
-	async () => import('remote/remote-app'),
-);
+type RemoteMountProps = {
+	message: string;
+	hostVersion: string;
+	remoteVersion: string;
+};
+
+type RemoteRoot = {
+	render: (props: RemoteMountProps) => void;
+	unmount: () => void;
+};
 
 export default () => {
+	const [message, setMessage] = useState('hello from host');
+	const remoteRootRef = useRef<HTMLDivElement | null>(null);
+	const remoteAppRef = useRef<RemoteRoot | null>(null);
+
 	useEffect(() => {
 		of('emit')
 			.pipe(tap(() => console.log("I'm RxJs from host")))
 			.subscribe();
 	}, []);
+
+	useEffect(() => {
+		if (!remoteRootRef.current) return;
+		if (remoteAppRef.current) return;
+
+		(async () => {
+			const remote = await import('remote/mount');
+			remoteAppRef.current = remote.mount(remoteRootRef.current!, {
+				message,
+				hostVersion: '19',
+				remoteVersion: '18',
+			});
+		})();
+
+		return () => {
+			remoteAppRef.current?.unmount();
+			remoteAppRef.current = null;
+		};
+	}, []);
+
+	useEffect(() => {
+		remoteAppRef.current?.render({
+			message,
+			hostVersion: '19',
+			remoteVersion: '18',
+		});
+	}, [message]);
 
 	return (
 		<>
@@ -35,14 +72,19 @@ export default () => {
 							/>
 						</svg>
 					</div>
-					<div className="title">I'm the host app</div>
+					<div className="title">Host app</div>
+					<div className="meta">React 19</div>
+					<input
+						className="message-input"
+						value={message}
+						onChange={(event) => setMessage(event.target.value)}
+						placeholder="Send text to remote"
+					/>
 					<Counter />
 				</div>
 			</div>
 
-			<Suspense fallback="loading...">
-				<Remote />
-			</Suspense>
+			<div ref={remoteRootRef} />
 		</>
 	);
 };
